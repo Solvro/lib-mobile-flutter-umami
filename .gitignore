@@ -42,3 +42,6 @@ app.*.map.json
 
 # Test related
 coverage
+
+.failed_tracker
+
