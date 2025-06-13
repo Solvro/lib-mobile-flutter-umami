@@ -46,7 +46,7 @@ MaterialApp(
 );
 ```
 
-#### Manually tracking screen views (usually not reccommended)
+#### Manually tracking screen views (usually not recommended)
 
 ```dart
 await umami.trackScreenView(
@@ -69,7 +69,7 @@ await umami.trackEvent(
 
 ## Credits
 
-Based on some discountinued package: [https://pub.dev/packages/umami_tracker](https://pub.dev/packages/umami_tracker)
+Based on some discontinued package: [https://pub.dev/packages/umami_tracker](https://pub.dev/packages/umami_tracker)
 
 ---
 
