@@ -37,18 +37,21 @@ class FlutterUmami {
     required String id,
     required String hostname,
     required String locale,
-    required Size screenSize,
     String? firstReferrer,
     bool isEnabled = true,
   }) async {
     await FkUserAgent.init();
     final dio = Dio()..options.baseUrl = url;
+    // First get the FlutterView.
+    final view = WidgetsBinding.instance.platformDispatcher.views.first;
+    // Dimensions in physical pixels (px)
+    final size = view.physicalSize;
     return UmamiCollector(
       dio: dio,
       id: id,
       hostname: hostname,
       language: locale,
-      screenSize: "${screenSize.width.toInt()}x${screenSize.height.toInt()}",
+      screenSize: "${size.width.toInt()}x${size.height.toInt()}",
       userAgent: FkUserAgent.userAgent ?? "",
       firstReferrer: firstReferrer,
       isEnabled: isEnabled,
