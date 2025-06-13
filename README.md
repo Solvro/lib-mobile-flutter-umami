@@ -21,13 +21,13 @@ flutter pub add flutter_umami
 First, create an instance of `FlutterUmami` by calling the `create` method:
 
 ```dart
+WidgetsFlutterBinding.ensureInitialized();
 final umami = await FlutterUmami.create(
   url: 'https://my.analytics.server', // Your Umami instance URL
   id: '9f65dd3f-f2be-4b27-8b58-d76f83510beb', // Your site ID from Umami dashboard
   hostname: 'com.my.app', // Your app's hostname
-  locale: 'en-US', // User's locale
-  screenSize: MediaQuery.of(context).size, // Current screen size
-  isEnabled: kIsRelease // reccomended
+  locale: 'en-US', // User's locale or get from the context or somewhere
+  isEnabled: kIsRelease // recommended
 );
 ```
 
@@ -46,7 +46,7 @@ MaterialApp(
 );
 ```
 
-#### Manually tracking screen views (usually not reccommended)
+#### Manually tracking screen views (usually not recommended)
 
 ```dart
 await umami.trackScreenView(
@@ -69,7 +69,7 @@ await umami.trackEvent(
 
 ## Credits
 
-Based on some old discountinued package: [https://pub.dev/packages/umami_tracker](https://pub.dev/packages/umami_tracker)
+Based on some discontinued package: [https://pub.dev/packages/umami_tracker](https://pub.dev/packages/umami_tracker)
 
 ---
 
