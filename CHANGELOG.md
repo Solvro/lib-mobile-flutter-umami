@@ -1,3 +1,6 @@
+# 0.3.0
+- fix: replace old user agent package
+
 # 0.2.2
 - fix: allow for futureable collector in the navigator observer
 
