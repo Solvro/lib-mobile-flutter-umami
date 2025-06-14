@@ -1,3 +1,6 @@
+# 0.2.2
+- fix: allow for futureable collector in the navigator observer
+
 # 0.2.1
 - fix: export navigator observer
 - fix: export UmamiCollector type
