@@ -1,5 +1,6 @@
+import "package:device_user_agent/device_user_agent.dart" show DeviceUserAgent;
 import "package:dio/dio.dart";
-import "package:fk_user_agent/fk_user_agent.dart";
+
 import "package:flutter/widgets.dart";
 
 import "collector_impl.dart";
@@ -41,7 +42,7 @@ class FlutterUmami {
     String? firstReferrer,
     bool isEnabled = true,
   }) async {
-    await FkUserAgent.init();
+    final userAgent = await DeviceUserAgent.instance.build();
     final dio = Dio()..options.baseUrl = url;
     // First get the FlutterView.
     final view = WidgetsBinding.instance.platformDispatcher.views.first;
@@ -53,7 +54,7 @@ class FlutterUmami {
       hostname: hostname,
       language: locale,
       screenSize: "${size.width.toInt()}x${size.height.toInt()}",
-      userAgent: FkUserAgent.userAgent ?? "",
+      userAgent: userAgent,
       firstReferrer: firstReferrer,
       isEnabled: isEnabled,
     );
