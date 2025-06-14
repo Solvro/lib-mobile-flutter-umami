@@ -2,7 +2,8 @@ import "package:dio/dio.dart";
 import "package:fk_user_agent/fk_user_agent.dart";
 import "package:flutter/widgets.dart";
 
-import "collector.dart";
+import "collector_impl.dart";
+import "umami_collector.dart";
 
 /// A class for creating Umami collectors.
 class FlutterUmami {
@@ -46,7 +47,7 @@ class FlutterUmami {
     final view = WidgetsBinding.instance.platformDispatcher.views.first;
     // Dimensions in physical pixels (px)
     final size = view.physicalSize;
-    return UmamiCollector(
+    return UmamiCollectorImpl(
       dio: dio,
       id: id,
       hostname: hostname,

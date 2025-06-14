@@ -1,5 +1,6 @@
 import "package:dio/dio.dart";
 import "package:flutter/foundation.dart";
+import "umami_collector.dart";
 
 enum _UmamiCollectType {
   pageview("pageview"),
@@ -11,7 +12,7 @@ enum _UmamiCollectType {
 }
 
 /// A collector for Umami Analytics.
-class UmamiCollector {
+class UmamiCollectorImpl implements UmamiCollector {
   /// The Dio instance used to make the network requests.
   final Dio dio;
 
@@ -30,14 +31,14 @@ class UmamiCollector {
   /// The user agent of the website to collect data for.
   final String userAgent;
 
-  /// The first referrer of the website to collect data for.
+  @override
   String? firstReferrer;
 
-  /// Whether the collector is enabled.
+  @override
   late bool isEnabled;
 
   /// Creates a new Umami collector.
-  UmamiCollector({
+  UmamiCollectorImpl({
     required this.dio,
     required this.id,
     required this.hostname,
@@ -48,16 +49,14 @@ class UmamiCollector {
     this.isEnabled = true,
   });
 
-  /// Send a pageview using the [screenName]. If [referrer] is provided
-  /// it will be used overriding any permanent value.
+  @override
   Future<void> trackScreenView(String screenName, {String? referrer}) async {
     if (isEnabled) {
       await _collectPageView(path: screenName, referrer: referrer);
     }
   }
 
-  /// Send an event with the specified [eventType]. You can optionally provide
-  /// an [eventValue] and/or a [screenName] to attach to the event.
+  @override
   Future<void> trackEvent({required String eventType, String? eventValue, String? screenName}) async {
     if (isEnabled) {
       await _collectEvent(eventType: eventType, eventValue: eventValue, path: screenName);

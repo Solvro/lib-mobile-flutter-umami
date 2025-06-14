@@ -2,7 +2,7 @@ import "dart:async";
 
 import "package:flutter/widgets.dart";
 
-import "collector.dart";
+import "umami_collector.dart";
 
 /// A navigator observer for tracking screen views.
 class UmamiNavigationObserver extends NavigatorObserver {

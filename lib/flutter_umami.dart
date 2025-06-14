@@ -2,3 +2,4 @@
 library;
 
 export "src/flutter_umami.dart";
+export "src/umami_collector.dart";
