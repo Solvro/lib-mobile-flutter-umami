@@ -1,6 +1,7 @@
 name: flutter_umami
 description: Simple Umami Analytics Flutter SDK
 version: 0.3.0
+repository: https://github.com/Solvro/lib-mobile-flutter-umami
 
 environment:
   sdk: ">=3.7.0 <4.0.0"
